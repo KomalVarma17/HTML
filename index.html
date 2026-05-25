@@ -6,22 +6,17 @@
 <title>My Heart for You 💕</title>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
 <style>
-  /* =============================================
-     CSS VARIABLES & RESET
-  ============================================= */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --blush:    #fde8ef;
-    --rose:     #f9bfce;
-    --crimson:  #e8547a;
-    --deep:     #c0365a;
-    --petal:    #fff0f5;
-    --text:     #6b2240;
-    --soft:     #f7d4df;
-    --white:    #ffffff;
-    --shadow:   0 8px 32px rgba(200,60,100,.18);
-    --radius:   20px;
+    --blush:   #fde8ef;
+    --rose:    #f9bfce;
+    --crimson: #e8547a;
+    --deep:    #c0365a;
+    --text:    #6b2240;
+    --soft:    #f7d4df;
+    --shadow:  0 8px 32px rgba(200,60,100,.18);
+    --radius:  20px;
   }
 
   html, body {
@@ -32,9 +27,6 @@
     overflow-x: hidden;
   }
 
-  /* =============================================
-     FLOATING HEARTS BACKGROUND
-  ============================================= */
   #hearts-bg {
     position: fixed; inset: 0;
     pointer-events: none;
@@ -45,21 +37,17 @@
   .heart-bg {
     position: absolute;
     bottom: -40px;
-    font-size: 1.4rem;
     animation: floatUp linear infinite;
     opacity: 0;
   }
 
   @keyframes floatUp {
-    0%   { transform: translateY(0) rotate(0deg) scale(1);  opacity: 0; }
+    0%   { transform: translateY(0) rotate(0deg) scale(1); opacity: 0; }
     10%  { opacity: .5; }
     90%  { opacity: .3; }
     100% { transform: translateY(-110vh) rotate(25deg) scale(.8); opacity: 0; }
   }
 
-  /* =============================================
-     PAGE SYSTEM
-  ============================================= */
   .page {
     position: relative; z-index: 1;
     display: none;
@@ -78,11 +66,8 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* =============================================
-     CARD / GLASS CONTAINER
-  ============================================= */
   .card {
-    background: rgba(255,255,255,.75);
+    background: rgba(255,255,255,.78);
     backdrop-filter: blur(10px);
     border: 1.5px solid rgba(248,180,200,.5);
     border-radius: var(--radius);
@@ -93,9 +78,6 @@
     text-align: center;
   }
 
-  /* =============================================
-     TYPOGRAPHY
-  ============================================= */
   .title {
     font-family: 'Dancing Script', cursive;
     font-size: clamp(1.9rem, 6vw, 2.8rem);
@@ -113,9 +95,6 @@
 
   .italic { font-style: italic; }
 
-  /* =============================================
-     DIVIDER
-  ============================================= */
   .divider {
     color: var(--rose);
     font-size: 1.3rem;
@@ -123,9 +102,6 @@
     letter-spacing: 6px;
   }
 
-  /* =============================================
-     BUTTONS
-  ============================================= */
   .btn {
     display: inline-block;
     padding: 13px 34px;
@@ -134,7 +110,7 @@
     font-family: 'Dancing Script', cursive;
     font-size: 1.25rem;
     cursor: pointer;
-    transition: transform .2s, box-shadow .2s, background .2s;
+    transition: transform .2s, box-shadow .2s;
     box-shadow: 0 4px 18px rgba(200,60,100,.25);
     text-decoration: none;
     margin: 6px 8px;
@@ -144,16 +120,12 @@
     background: linear-gradient(135deg, var(--crimson), var(--deep));
     color: #fff;
   }
-
-  .btn-yes:hover {
-    transform: scale(1.07);
-    box-shadow: 0 6px 24px rgba(200,60,100,.4);
-  }
+  .btn-yes:hover { transform: scale(1.07); box-shadow: 0 6px 24px rgba(200,60,100,.4); }
 
   .btn-no {
     background: var(--soft);
     color: var(--deep);
-    position: absolute; /* so it can teleport */
+    position: absolute;
   }
 
   .btn-next {
@@ -161,21 +133,19 @@
     color: #fff;
     margin-top: 18px;
   }
-
   .btn-next:hover { transform: scale(1.06); }
 
   .btn-love {
     background: linear-gradient(135deg, #ff6b9d, var(--deep));
     color: #fff;
-    font-size: 1.1rem;
-    padding: 14px 28px;
+    font-size: 1.05rem;
+    padding: 14px 22px;
+    display: block;
+    width: 100%;
+    margin: 8px 0;
   }
+  .btn-love:hover { transform: scale(1.03); }
 
-  .btn-love:hover { transform: scale(1.05); }
-
-  /* =============================================
-     BUTTON WRAPPER for page 1 forgive question
-  ============================================= */
   #forgive-wrapper {
     position: relative;
     height: 80px;
@@ -186,70 +156,58 @@
     margin-top: 10px;
   }
 
-  /* =============================================
-     IMAGES
-  ============================================= */
+  /* ── Bear image — natural size ── */
   .bear-img {
     width: min(260px, 80vw);
+    height: auto;
     border-radius: 18px;
     margin: 18px auto;
     display: block;
     filter: drop-shadow(0 6px 18px rgba(200,60,100,.2));
-    /* ---- REPLACE: swap couple1.png for your sad Dudu Bubu bears image ---- */
-    object-fit: cover;
   }
 
-  .final-img {
-    width: min(300px, 85vw);
-    border-radius: 22px;
-    margin: 22px auto;
-    display: block;
-    box-shadow: 0 8px 30px rgba(200,60,100,.3);
-    object-fit: cover;
-    /* ---- REPLACE: swap final-photo.jpg for your chosen final photo ---- */
-  }
-
-  /* =============================================
-     PHOTO COLLAGE
-  ============================================= */
+  /* ── Collages — natural aspect ratio, no forced crop ── */
   .collage {
     display: grid;
-    gap: 10px;
+    gap: 8px;
     margin: 20px 0;
     width: 100%;
+    align-items: start;       /* rows don't stretch to match tallest cell */
   }
 
   .collage-3 { grid-template-columns: repeat(3, 1fr); }
   .collage-2 { grid-template-columns: 1fr 1fr; }
-  .collage-span2 { grid-column: span 2; }
 
   .collage img {
-    width: 100%; height: 130px;
-    object-fit: cover;
+    width: 100%;
+    height: auto;             /* natural aspect ratio */
+    max-width: 100%;
     border-radius: 12px;
     box-shadow: 0 4px 14px rgba(200,60,100,.15);
     transition: transform .25s;
+    display: block;
   }
 
   .collage img:hover { transform: scale(1.04); }
 
+  /* ── Couple collage — natural aspect ratio ── */
   .collage-couple {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
     margin: 20px 0;
+    align-items: start;
   }
 
   .collage-couple img {
-    width: 100%; height: 160px;
-    object-fit: cover;
+    width: 100%;
+    height: auto;             /* natural aspect ratio */
     border-radius: 14px;
     box-shadow: 0 4px 14px rgba(200,60,100,.15);
+    display: block;
   }
 
-  /* =============================================
-     CELEBRATION OVERLAY
-  ============================================= */
+  /* ── Celebration overlay ── */
   #celebration {
     display: none;
     position: fixed; inset: 0;
@@ -266,9 +224,19 @@
 
   #celebration.active { display: flex; }
 
+  .final-media {
+    width: min(300px, 85vw);
+    height: auto;
+    max-height: 60vh;
+    border-radius: 22px;
+    margin: 22px auto;
+    display: block;
+    box-shadow: 0 8px 30px rgba(200,60,100,.3);
+    object-fit: contain;
+  }
+
   .confetti-heart {
     position: fixed;
-    font-size: 1.6rem;
     pointer-events: none;
     animation: showerDown linear infinite;
     top: -60px;
@@ -284,47 +252,35 @@
     font-size: clamp(2.2rem, 8vw, 3.6rem);
     color: var(--crimson);
     text-shadow: 0 2px 18px rgba(200,60,100,.25);
-    margin-top: 20px;
+    margin-top: 16px;
     animation: pulse 1.6s ease-in-out infinite;
   }
 
   @keyframes pulse {
-    0%,100% { transform: scale(1);    }
+    0%,100% { transform: scale(1); }
     50%      { transform: scale(1.05); }
   }
 
-  /* =============================================
-     RESPONSIVE TWEAKS
-  ============================================= */
   @media (max-width: 420px) {
-    .card { padding: 24px 16px; }
+    .card { padding: 22px 14px; }
     .collage-3 { grid-template-columns: 1fr 1fr; }
+    .btn-love  { font-size: .95rem; padding: 12px 16px; }
   }
 </style>
 </head>
 <body>
 
-<!-- ============ FLOATING HEARTS BACKGROUND ============ -->
 <div id="hearts-bg"></div>
 
-<!-- ==================================================
-     PAGE 1 — APOLOGY & FORGIVE
-     REPLACE: couple1.png → your sad Dudu Bubu bear image
-================================================== -->
+<!-- PAGE 1 -->
 <div class="page active" id="page1">
   <div class="card">
     <div class="title">I am so sorry for saying<br>I lost interest.</div>
     <div class="body-text">I never meant it 😢</div>
-
     <div class="divider">♥ ♥ ♥</div>
-
-    <!-- ── REPLACE: change src="couple1.png" to your bears image path ── -->
     <img src="IMG_4403.JPG" alt="Sad Dudu Bubu bears" class="bear-img" />
-
     <div class="divider">· · ·</div>
-
     <div class="body-text italic">Please forgive me?</div>
-
     <div id="forgive-wrapper">
       <button class="btn btn-yes" onclick="goTo('page2')">Yes 💕</button>
       <button class="btn btn-no" id="noBtn">No</button>
@@ -332,111 +288,77 @@
   </div>
 </div>
 
-<!-- ==================================================
-     PAGE 2 — MEMORY COLLAGE
-     REPLACE: photo1.jpg, photo2.jpg, photo3.jpg
-================================================== -->
+<!-- PAGE 2 -->
 <div class="page" id="page2">
   <div class="card">
     <div class="title">Remember these days…</div>
-
-    <!-- ── REPLACE: swap photo1.jpg / photo2.jpg / photo3.jpg with your own memories ── -->
     <div class="collage collage-3">
       <img src="8FF59ED1-C0B0-4F03-932C-873A6C65B5F1.JPG" alt="Memory 1" />
       <img src="IMG_4368.JPG" alt="Memory 2" />
       <img src="IMG_4436.JPG" alt="Memory 3" />
     </div>
-
     <div class="divider">♥ ♥ ♥</div>
-
     <div class="body-text italic">
       "Do you remember these days where we spent the best time and
       promised each other that we would never separate?"
     </div>
-
     <button class="btn btn-next" onclick="goTo('page3')">Next ➜</button>
   </div>
 </div>
 
-<!-- ==================================================
-     PAGE 3 — ROMANTIC NOTE
-     REPLACE: couple photos below
-================================================== -->
+<!-- PAGE 3 -->
 <div class="page" id="page3">
   <div class="card">
     <div class="title">My Promise to You</div>
-
     <div class="divider">♥ ♥ ♥</div>
-
     <div class="body-text">
       "We've been apart enough. It's time to get back together and build
       a happy, healthy relationship. I promise to be the best guy you've
       ever seen — and the best guy meant for you."
     </div>
-
-    <!-- ── REPLACE: swap couple photos with your own romantic couple images ── -->
     <div class="collage-couple">
       <img src="IMG_4341.JPG" alt="Couple photo 1" />
       <img src="IMG_4406.JPG" alt="Couple photo 2" />
     </div>
-
     <button class="btn btn-next" onclick="goTo('page4')">Next ➜</button>
   </div>
 </div>
 
-<!-- ==================================================
-     PAGE 4 — WILL YOU BE MY VALENTINE
-     REPLACE: photo collage & final-photo.jpg
-================================================== -->
+<!-- PAGE 4 -->
 <div class="page" id="page4">
   <div class="card">
     <div class="title">We are meant to be<br>together forever 💞</div>
-
-    <!-- ── REPLACE: swap photo2.jpg / photo3.jpg with more sweet memories ── -->
     <div class="collage collage-2">
       <img src="IMG_4430.JPG" alt="Us together 1" />
       <img src="IMG_4447.JPG" alt="Us together 2" />
     </div>
-
     <div class="divider">♥ ♥ ♥</div>
-
     <div class="body-text italic">
       "Will you be my cute little Valentine again, so we can spend
       the rest of our days together?"
     </div>
-
-    <div>
+    <div style="margin-top:10px;">
       <button class="btn btn-love" onclick="celebrate()">
         Let's get back together and live happily 🥰
       </button>
       <button class="btn btn-love" onclick="celebrate()">
-        I will be your Valentine, my love.<br>I missed you too 💋
+        I will be your Valentine, my love. I missed you too 💋
       </button>
     </div>
   </div>
 </div>
 
-<!-- ==================================================
-     CELEBRATION OVERLAY
-     REPLACE: final-photo.jpg → your chosen final photo
-================================================== -->
+<!-- CELEBRATION -->
 <div id="celebration">
-  <!-- ── REPLACE: change src="final-photo.jpg" to your final photo ── -->
-  <video src="13496574-23A9-4055-971E-EC89050E1847.MOV" 
-       class="final-img" 
-       autoplay 
-       loop 
-       muted 
-       playsinline>
-</video>
+  <video
+    src="13496574-23A9-4055-971E-EC89050E1847.MOV"
+    class="final-media"
+    autoplay loop muted playsinline>
+  </video>
   <div class="final-text">I love you forever ❤️</div>
 </div>
 
-<!-- =============================================
-     JAVASCRIPT
-============================================= -->
 <script>
-  /* ── Floating background hearts ─────────────────── */
   const bgHearts = ['❤️','🧡','💕','💗','💖','💝','💞','🌸'];
   const bgContainer = document.getElementById('hearts-bg');
 
@@ -444,58 +366,51 @@
     const el = document.createElement('span');
     el.className = 'heart-bg';
     el.textContent = bgHearts[Math.floor(Math.random() * bgHearts.length)];
-    el.style.left      = Math.random() * 100 + 'vw';
-    el.style.fontSize  = (.9 + Math.random() * 1.4) + 'rem';
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.fontSize = (.9 + Math.random() * 1.4) + 'rem';
     const dur = 7 + Math.random() * 10;
     el.style.animationDuration = dur + 's';
-    el.style.animationDelay   = Math.random() * dur + 's';
+    el.style.animationDelay = (Math.random() * dur) + 's';
     bgContainer.appendChild(el);
-    setTimeout(() => el.remove(), (dur + dur) * 1000);
+    setTimeout(() => el.remove(), (dur * 2) * 1000);
   }
 
   for (let i = 0; i < 22; i++) spawnBgHeart();
   setInterval(spawnBgHeart, 900);
 
-  /* ── Page transitions ────────────────────────────── */
   function goTo(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    const next = document.getElementById(id);
-    next.classList.add('active');
+    document.getElementById(id).classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  /* ── Runaway "No" button ─────────────────────────── */
   const noBtn = document.getElementById('noBtn');
   const wrapper = document.getElementById('forgive-wrapper');
 
   function teleportNo(e) {
     if (e) e.preventDefault();
-    const wRect  = wrapper.getBoundingClientRect();
-    const bRect  = noBtn.getBoundingClientRect();
-    const maxX   = wRect.width  - bRect.width;
-    const maxY   = wRect.height - bRect.height;
-
-    // Random position inside wrapper, but avoid center where YES button is
+    const wRect = wrapper.getBoundingClientRect();
+    const bRect = noBtn.getBoundingClientRect();
+    const maxX = wRect.width  - bRect.width;
+    const maxY = wRect.height - bRect.height;
     let rx, ry;
     do {
       rx = Math.random() * maxX;
       ry = Math.random() * maxY;
     } while (Math.abs(rx - maxX / 2) < 80 && Math.abs(ry - maxY / 2) < 30);
-
     noBtn.style.left = rx + 'px';
     noBtn.style.top  = ry + 'px';
   }
 
-  noBtn.style.position = 'absolute';
+  noBtn.style.position   = 'absolute';
   noBtn.style.transition = 'left .18s, top .18s';
   noBtn.style.left = '60%';
   noBtn.style.top  = '20%';
 
-  noBtn.addEventListener('mouseover', teleportNo);
+  noBtn.addEventListener('mouseover',  teleportNo);
   noBtn.addEventListener('touchstart', teleportNo, { passive: false });
   noBtn.addEventListener('click',      teleportNo);
 
-  /* ── Celebration shower ──────────────────────────── */
   const celebIcons = ['❤️','💕','💋','😘','💖','🌸','💗','💞','😍','🥰'];
 
   function celebrate() {
@@ -503,23 +418,25 @@
     launchShower();
   }
 
+  let showerInterval = null;
   function launchShower() {
     for (let i = 0; i < 55; i++) {
       setTimeout(() => {
         const el = document.createElement('span');
         el.className = 'confetti-heart';
         el.textContent = celebIcons[Math.floor(Math.random() * celebIcons.length)];
-        el.style.left     = Math.random() * 100 + 'vw';
+        el.style.left = Math.random() * 100 + 'vw';
         el.style.fontSize = (.9 + Math.random() * 1.6) + 'rem';
         const dur = 3 + Math.random() * 5;
         el.style.animationDuration = dur + 's';
-        el.style.animationDelay   = Math.random() * 2 + 's';
+        el.style.animationDelay = (Math.random() * 2) + 's';
         document.getElementById('celebration').appendChild(el);
         setTimeout(() => el.remove(), (dur + 3) * 1000);
       }, i * 80);
     }
-    // Keep showering
-    setInterval(launchShower, 6000);
+    if (!showerInterval) {
+      showerInterval = setInterval(launchShower, 6000);
+    }
   }
 </script>
 </body>
